@@ -1,0 +1,877 @@
+{
+  "version": 4,
+  "terraform_version": "1.2.4",
+  "serial": 18,
+  "lineage": "41e4fd60-8536-a3c4-3edf-4c4cba967316",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "google_compute_firewall",
+      "name": "allow_ssh",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "allow": [
+              {
+                "ports": [
+                  "22"
+                ],
+                "protocol": "tcp"
+              }
+            ],
+            "creation_timestamp": "2022-07-31T00:05:20.103-07:00",
+            "deny": [],
+            "description": "",
+            "destination_ranges": [],
+            "direction": "INGRESS",
+            "disabled": false,
+            "enable_logging": null,
+            "id": "projects/abdelsalam-billing-account/global/firewalls/allow-ssh",
+            "log_config": [],
+            "name": "allow-ssh",
+            "network": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/global/networks/vpc-network",
+            "priority": 1000,
+            "project": "abdelsalam-billing-account",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/global/firewalls/allow-ssh",
+            "source_ranges": [
+              "35.235.240.0/20"
+            ],
+            "source_service_accounts": [],
+            "source_tags": [],
+            "target_service_accounts": [],
+            "target_tags": [],
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.network.google_compute_network.vpc_network",
+            "module.network.google_compute_router.my_router",
+            "module.network.google_compute_router_nat.my_nat",
+            "module.network.google_compute_subnetwork.management_subnet",
+            "module.network.google_compute_subnetwork.restricted_subnet"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_compute_instance",
+      "name": "private_vm",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 6,
+          "attributes": {
+            "advanced_machine_features": [],
+            "allow_stopping_for_update": true,
+            "attached_disk": [],
+            "boot_disk": [
+              {
+                "auto_delete": true,
+                "device_name": "persistent-disk-0",
+                "disk_encryption_key_raw": "",
+                "disk_encryption_key_sha256": "",
+                "initialize_params": [
+                  {
+                    "image": "https://www.googleapis.com/compute/v1/projects/centos-cloud/global/images/centos-7-v20220719",
+                    "labels": {},
+                    "size": 20,
+                    "type": "pd-standard"
+                  }
+                ],
+                "kms_key_self_link": "",
+                "mode": "READ_WRITE",
+                "source": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-b/disks/private-vm"
+              }
+            ],
+            "can_ip_forward": false,
+            "confidential_instance_config": [],
+            "cpu_platform": "Intel Broadwell",
+            "current_status": "RUNNING",
+            "deletion_protection": false,
+            "description": "",
+            "desired_status": null,
+            "enable_display": false,
+            "guest_accelerator": [],
+            "hostname": "",
+            "id": "projects/abdelsalam-billing-account/zones/europe-west1-b/instances/private-vm",
+            "instance_id": "560573864708117779",
+            "label_fingerprint": "42WmSpB8rSM=",
+            "labels": {},
+            "machine_type": "e2-micro",
+            "metadata": {},
+            "metadata_fingerprint": "QI2p26bf4HU=",
+            "metadata_startup_script": null,
+            "min_cpu_platform": "",
+            "name": "private-vm",
+            "network_interface": [
+              {
+                "access_config": [],
+                "alias_ip_range": [],
+                "ipv6_access_config": [],
+                "ipv6_access_type": "",
+                "name": "nic0",
+                "network": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/global/networks/vpc-network",
+                "network_ip": "10.0.0.2",
+                "nic_type": "",
+                "queue_count": 0,
+                "stack_type": "IPV4_ONLY",
+                "subnetwork": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/regions/europe-west1/subnetworks/management-subnet",
+                "subnetwork_project": "abdelsalam-billing-account"
+              }
+            ],
+            "project": "abdelsalam-billing-account",
+            "reservation_affinity": [],
+            "resource_policies": [],
+            "scheduling": [
+              {
+                "automatic_restart": true,
+                "instance_termination_action": "",
+                "min_node_cpus": 0,
+                "node_affinities": [],
+                "on_host_maintenance": "MIGRATE",
+                "preemptible": false,
+                "provisioning_model": "STANDARD"
+              }
+            ],
+            "scratch_disk": [],
+            "self_link": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-b/instances/private-vm",
+            "service_account": [
+              {
+                "email": "vm-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+                "scopes": [
+                  "https://www.googleapis.com/auth/cloud-platform"
+                ]
+              }
+            ],
+            "shielded_instance_config": [
+              {
+                "enable_integrity_monitoring": true,
+                "enable_secure_boot": false,
+                "enable_vtpm": true
+              }
+            ],
+            "tags": [],
+            "tags_fingerprint": "42WmSpB8rSM=",
+            "timeouts": null,
+            "zone": "europe-west1-b"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiNiJ9",
+          "dependencies": [
+            "google_container_cluster.private_gke_cluster",
+            "google_container_node_pool.nodepool",
+            "google_service_account.gke_service_account",
+            "google_service_account.vm_service_account",
+            "module.network.google_compute_network.vpc_network",
+            "module.network.google_compute_router.my_router",
+            "module.network.google_compute_router_nat.my_nat",
+            "module.network.google_compute_subnetwork.management_subnet",
+            "module.network.google_compute_subnetwork.restricted_subnet"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_container_cluster",
+      "name": "private_gke_cluster",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "addons_config": [
+              {
+                "cloudrun_config": [],
+                "dns_cache_config": [],
+                "gce_persistent_disk_csi_driver_config": [
+                  {
+                    "enabled": true
+                  }
+                ],
+                "gcp_filestore_csi_driver_config": [],
+                "horizontal_pod_autoscaling": [],
+                "http_load_balancing": [],
+                "network_policy_config": [
+                  {
+                    "disabled": true
+                  }
+                ]
+              }
+            ],
+            "authenticator_groups_config": [],
+            "binary_authorization": [
+              {
+                "enabled": false,
+                "evaluation_mode": ""
+              }
+            ],
+            "cluster_autoscaling": [
+              {
+                "auto_provisioning_defaults": [],
+                "enabled": false,
+                "resource_limits": []
+              }
+            ],
+            "cluster_ipv4_cidr": "10.240.0.0/14",
+            "confidential_nodes": [],
+            "database_encryption": [
+              {
+                "key_name": "",
+                "state": "DECRYPTED"
+              }
+            ],
+            "datapath_provider": "",
+            "default_max_pods_per_node": 110,
+            "default_snat_status": [
+              {
+                "disabled": false
+              }
+            ],
+            "description": "",
+            "dns_config": [],
+            "enable_autopilot": false,
+            "enable_binary_authorization": false,
+            "enable_intranode_visibility": false,
+            "enable_kubernetes_alpha": false,
+            "enable_legacy_abac": false,
+            "enable_shielded_nodes": true,
+            "enable_tpu": false,
+            "endpoint": "172.16.0.2",
+            "id": "projects/abdelsalam-billing-account/locations/europe-west1-b/clusters/private-gke-cluster",
+            "initial_node_count": 1,
+            "ip_allocation_policy": [
+              {
+                "cluster_ipv4_cidr_block": "10.240.0.0/14",
+                "cluster_secondary_range_name": "gke-private-gke-cluster-pods-15086773",
+                "services_ipv4_cidr_block": "10.244.0.0/20",
+                "services_secondary_range_name": "gke-private-gke-cluster-services-15086773"
+              }
+            ],
+            "label_fingerprint": "a9dc16a7",
+            "location": "europe-west1-b",
+            "logging_config": [
+              {
+                "enable_components": [
+                  "SYSTEM_COMPONENTS",
+                  "WORKLOADS"
+                ]
+              }
+            ],
+            "logging_service": "logging.googleapis.com/kubernetes",
+            "maintenance_policy": [],
+            "master_auth": [
+              {
+                "client_certificate": "",
+                "client_certificate_config": [
+                  {
+                    "issue_client_certificate": false
+                  }
+                ],
+                "client_key": "",
+                "cluster_ca_certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRYTdhQVlhK2RRazNYdDRRY3RXMksvakFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlSaE1tVTNZVEppTnkxbFpEazNMVFF4WldVdFltUXpNeTB6TVRoaE5qZzJNVGN4WWprdwpJQmNOTWpJd056TXhNRFl3TlRJd1doZ1BNakExTWpBM01qTXdOekExTWpCYU1DOHhMVEFyQmdOVkJBTVRKR0V5ClpUZGhNbUkzTFdWa09UY3ROREZsWlMxaVpETXpMVE14T0dFMk9EWXhOekZpT1RDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQU9ibVhQQ0VwbHd0YUwzbkVOcGNzLzBJMFRFeDVPT1cyR0NncXp1QgpyKzJ4ODE3L0s2RE1wTEtTNS9qc255aVNRVnpvSGdSN3J3STdkd3NtanlaR25TZUNqY1dLa0FoaHJXeUQ2Wk0rClFIdlczRlVTWlRUQml3NWZHemFqeEZyYzljVHBDRWtCTDRpemhBRm42cjY2SUE0WWQxdjJMNDgxY1lxam9qd2UKalkrL2RzQ3o1bXRYbnZrRGdoV0l3b3ZXOGdqTTBtNGZyK1RZejc4MVExK3RWTkhEUnpsMWVRSW9sSFRIdStwMApHRGdDQzNVR3RXQ3NBQlcvRWdXZTc2Vlo4RTdZUGpTQlNRTlZwdWRJMTFUMit3bzhMbWtwc09IeHpiOEdONzFnCkZhSzU0T202NGRnYnNBZ3dBeTE5SlZEZmtKTWp6WjNXbnh0c05MZFZBVFNPcFBMSEFlS2FDeU5LcU13Y1pmL1oKSDdjdWgvQUxHVE45Vjc1MmgyRWJLeGNlYnRBWEw4TVZldTFkL0taRXU3cHBTMWRDblFkOXFLNGdHNXNVc1k5Vgp3aXAvYW54SjMvb3RXQTBnVGVzZysyd2FtK2xDZGFWYTlNbUFuRVc4cW5UVVNmZG5vVWZOdlpUR05rRlF5czdZClZsOVZaMCsxd1FPWTlsbnVvdUo5MkhVSzl3SURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVQczA3M3ljeVdYaDB0WHNnbkZsd0VucTlXdDB3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFDVGE3b2o3QTAwZklDL2pwK2xHWFltL21vYjd1cjRiYUwwMlRPNElUVG1wClFxc3ordGJVdzhlT05jY3JtaExlUXhUaHVtQXhkN3RCUmswWEUzZ1J4TGliUFREZ3ZTNkpCTDdNU0FpQ0MyM0YKN0l3Nk4zWXpBTDRzSEdmMWRkVFhNdkN1djc0OGNwT3ZqdWNMdFJtelNLSlZiblZ5WHFFOWpJYjhSNERpeXRqcAp3VkwvSnFtS0JIdXduOUd0aHlGeXgvL2Z2UExnOXhJNWt2ZTZib0NuOWo2bHAxSnhJam5HaU9QakdRaVJTUkcrCnVXb3ZRcXFLNnBQMDYreEExNGNseEJXZ1FiQ08yYWRWUnRCMEZUS3J1WE1GNjFxUkRxbHVCa2l0bTB1WlZLcy8KaGRUSWxrZ21lcWRWZmc5b1pzZWJwZmtDRnBmcWdscGdKYjJzVnYvNnVJWm5GMFZyQTkyTTRKWjNvOXdscWpuVQp4bEl3OHBkNkhKMnI4RkxubS8vc1NRWmN0ZG1kb1BrSlF4Q0s5L1ZSL1FTWEFVRlM2NDJGblZ5clQ1S3MxQkh2CitpMkE0enhuS1h5andXMENHTmJqQ29xT3dvWkwyUVVNOFVsVC91LzFNSmJ5SXJLV254bnZTeE9ZakNFejdXOFkKRjJoZVNNQmdBNXRZVTJuZVpTMjBhQT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+              }
+            ],
+            "master_authorized_networks_config": [
+              {
+                "cidr_blocks": [
+                  {
+                    "cidr_block": "10.0.0.0/24",
+                    "display_name": "managesub_cidr_range"
+                  }
+                ]
+              }
+            ],
+            "master_version": "1.22.10-gke.600",
+            "min_master_version": null,
+            "monitoring_config": [
+              {
+                "enable_components": [
+                  "SYSTEM_COMPONENTS"
+                ]
+              }
+            ],
+            "monitoring_service": "monitoring.googleapis.com/kubernetes",
+            "name": "private-gke-cluster",
+            "network": "projects/abdelsalam-billing-account/global/networks/vpc-network",
+            "network_policy": [
+              {
+                "enabled": false,
+                "provider": "PROVIDER_UNSPECIFIED"
+              }
+            ],
+            "networking_mode": "VPC_NATIVE",
+            "node_config": [
+              {
+                "boot_disk_kms_key": "",
+                "disk_size_gb": 100,
+                "disk_type": "pd-standard",
+                "gcfs_config": [],
+                "guest_accelerator": [],
+                "gvnic": [],
+                "image_type": "COS_CONTAINERD",
+                "labels": {},
+                "local_ssd_count": 0,
+                "machine_type": "e2-micro",
+                "metadata": {
+                  "disable-legacy-endpoints": "true"
+                },
+                "min_cpu_platform": "",
+                "node_group": "",
+                "oauth_scopes": [
+                  "https://www.googleapis.com/auth/cloud-platform"
+                ],
+                "preemptible": true,
+                "service_account": "gke-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+                "shielded_instance_config": [
+                  {
+                    "enable_integrity_monitoring": true,
+                    "enable_secure_boot": false
+                  }
+                ],
+                "spot": false,
+                "tags": [],
+                "taint": [],
+                "workload_metadata_config": []
+              }
+            ],
+            "node_locations": [
+              "europe-west1-c"
+            ],
+            "node_pool": [
+              {
+                "autoscaling": [],
+                "initial_node_count": 2,
+                "instance_group_urls": [
+                  "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-b/instanceGroupManagers/gke-private-gke-cluster-node-pool-32ed65c6-grp",
+                  "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-c/instanceGroupManagers/gke-private-gke-cluster-node-pool-8b2ae006-grp"
+                ],
+                "managed_instance_group_urls": [
+                  "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-b/instanceGroups/gke-private-gke-cluster-node-pool-32ed65c6-grp",
+                  "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-c/instanceGroups/gke-private-gke-cluster-node-pool-8b2ae006-grp"
+                ],
+                "management": [
+                  {
+                    "auto_repair": true,
+                    "auto_upgrade": true
+                  }
+                ],
+                "max_pods_per_node": 110,
+                "name": "node-pool",
+                "name_prefix": "",
+                "node_config": [
+                  {
+                    "boot_disk_kms_key": "",
+                    "disk_size_gb": 100,
+                    "disk_type": "pd-standard",
+                    "gcfs_config": [],
+                    "guest_accelerator": [],
+                    "gvnic": [],
+                    "image_type": "COS_CONTAINERD",
+                    "labels": {},
+                    "local_ssd_count": 0,
+                    "machine_type": "e2-micro",
+                    "metadata": {
+                      "disable-legacy-endpoints": "true"
+                    },
+                    "min_cpu_platform": "",
+                    "node_group": "",
+                    "oauth_scopes": [
+                      "https://www.googleapis.com/auth/cloud-platform"
+                    ],
+                    "preemptible": true,
+                    "service_account": "gke-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+                    "shielded_instance_config": [
+                      {
+                        "enable_integrity_monitoring": true,
+                        "enable_secure_boot": false
+                      }
+                    ],
+                    "spot": false,
+                    "tags": [],
+                    "taint": [],
+                    "workload_metadata_config": []
+                  }
+                ],
+                "node_count": 2,
+                "node_locations": [
+                  "europe-west1-b",
+                  "europe-west1-c"
+                ],
+                "upgrade_settings": [
+                  {
+                    "max_surge": 1,
+                    "max_unavailable": 0
+                  }
+                ],
+                "version": "1.22.10-gke.600"
+              }
+            ],
+            "node_version": "1.22.10-gke.600",
+            "notification_config": [
+              {
+                "pubsub": [
+                  {
+                    "enabled": false,
+                    "topic": ""
+                  }
+                ]
+              }
+            ],
+            "operation": null,
+            "private_cluster_config": [
+              {
+                "enable_private_endpoint": true,
+                "enable_private_nodes": true,
+                "master_global_access_config": [
+                  {
+                    "enabled": false
+                  }
+                ],
+                "master_ipv4_cidr_block": "172.16.0.0/28",
+                "peering_name": "gke-nc5bf0c78173f4f330b2-65d0-ac7c-peer",
+                "private_endpoint": "172.16.0.2",
+                "public_endpoint": "34.78.95.215"
+              }
+            ],
+            "private_ipv6_google_access": "",
+            "project": "abdelsalam-billing-account",
+            "release_channel": [
+              {
+                "channel": "REGULAR"
+              }
+            ],
+            "remove_default_node_pool": true,
+            "resource_labels": {},
+            "resource_usage_export_config": [],
+            "self_link": "https://container.googleapis.com/v1/projects/abdelsalam-billing-account/zones/europe-west1-b/clusters/private-gke-cluster",
+            "services_ipv4_cidr": "10.244.0.0/20",
+            "subnetwork": "projects/abdelsalam-billing-account/regions/europe-west1/subnetworks/restricted-subnet",
+            "timeouts": null,
+            "tpu_ipv4_cidr_block": "",
+            "vertical_pod_autoscaling": [],
+            "workload_identity_config": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNDAwMDAwMDAwMDAwLCJkZWxldGUiOjI0MDAwMDAwMDAwMDAsInJlYWQiOjI0MDAwMDAwMDAwMDAsInVwZGF0ZSI6MzYwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.network.google_compute_network.vpc_network",
+            "module.network.google_compute_router.my_router",
+            "module.network.google_compute_router_nat.my_nat",
+            "module.network.google_compute_subnetwork.management_subnet",
+            "module.network.google_compute_subnetwork.restricted_subnet"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_container_node_pool",
+      "name": "nodepool",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "autoscaling": [],
+            "cluster": "projects/abdelsalam-billing-account/locations/europe-west1-b/clusters/private-gke-cluster",
+            "id": "projects/abdelsalam-billing-account/locations/europe-west1-b/clusters/private-gke-cluster/nodePools/node-pool",
+            "initial_node_count": 2,
+            "instance_group_urls": [
+              "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-b/instanceGroupManagers/gke-private-gke-cluster-node-pool-32ed65c6-grp",
+              "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-c/instanceGroupManagers/gke-private-gke-cluster-node-pool-8b2ae006-grp"
+            ],
+            "location": "europe-west1-b",
+            "managed_instance_group_urls": [
+              "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-b/instanceGroups/gke-private-gke-cluster-node-pool-32ed65c6-grp",
+              "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/zones/europe-west1-c/instanceGroups/gke-private-gke-cluster-node-pool-8b2ae006-grp"
+            ],
+            "management": [
+              {
+                "auto_repair": true,
+                "auto_upgrade": true
+              }
+            ],
+            "max_pods_per_node": 110,
+            "name": "node-pool",
+            "name_prefix": "",
+            "node_config": [
+              {
+                "boot_disk_kms_key": "",
+                "disk_size_gb": 100,
+                "disk_type": "pd-standard",
+                "gcfs_config": [],
+                "guest_accelerator": [],
+                "gvnic": [],
+                "image_type": "COS_CONTAINERD",
+                "labels": {},
+                "local_ssd_count": 0,
+                "machine_type": "e2-micro",
+                "metadata": {
+                  "disable-legacy-endpoints": "true"
+                },
+                "min_cpu_platform": "",
+                "node_group": "",
+                "oauth_scopes": [
+                  "https://www.googleapis.com/auth/cloud-platform"
+                ],
+                "preemptible": true,
+                "service_account": "gke-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+                "shielded_instance_config": [
+                  {
+                    "enable_integrity_monitoring": true,
+                    "enable_secure_boot": false
+                  }
+                ],
+                "spot": false,
+                "tags": [],
+                "taint": [],
+                "workload_metadata_config": []
+              }
+            ],
+            "node_count": 2,
+            "node_locations": [
+              "europe-west1-b",
+              "europe-west1-c"
+            ],
+            "operation": null,
+            "project": "abdelsalam-billing-account",
+            "timeouts": null,
+            "upgrade_settings": [
+              {
+                "max_surge": 1,
+                "max_unavailable": 0
+              }
+            ],
+            "version": "1.22.10-gke.600"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInVwZGF0ZSI6MTgwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "google_container_cluster.private_gke_cluster",
+            "google_service_account.gke_service_account",
+            "module.network.google_compute_network.vpc_network",
+            "module.network.google_compute_router.my_router",
+            "module.network.google_compute_router_nat.my_nat",
+            "module.network.google_compute_subnetwork.management_subnet",
+            "module.network.google_compute_subnetwork.restricted_subnet"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_project_iam_binding",
+      "name": "gke_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXlFH1wmmg=",
+            "id": "abdelsalam-billing-account/roles/storage.admin",
+            "members": [
+              "serviceAccount:gke-service-account@abdelsalam-billing-account.iam.gserviceaccount.com"
+            ],
+            "project": "abdelsalam-billing-account",
+            "role": "roles/storage.admin"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.gke_service_account"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_project_iam_binding",
+      "name": "vm_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXlFH1wmmg=",
+            "id": "abdelsalam-billing-account/roles/container.admin",
+            "members": [
+              "serviceAccount:vm-service-account@abdelsalam-billing-account.iam.gserviceaccount.com"
+            ],
+            "project": "abdelsalam-billing-account",
+            "role": "roles/container.admin"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.vm_service_account"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_service_account",
+      "name": "gke_service_account",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "gke-service-account",
+            "description": "",
+            "disabled": false,
+            "display_name": "",
+            "email": "gke-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+            "id": "projects/abdelsalam-billing-account/serviceAccounts/gke-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+            "name": "projects/abdelsalam-billing-account/serviceAccounts/gke-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+            "project": "abdelsalam-billing-account",
+            "timeouts": null,
+            "unique_id": "118191723154035587953"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_service_account",
+      "name": "vm_service_account",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "vm-service-account",
+            "description": "",
+            "disabled": false,
+            "display_name": "",
+            "email": "vm-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+            "id": "projects/abdelsalam-billing-account/serviceAccounts/vm-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+            "name": "projects/abdelsalam-billing-account/serviceAccounts/vm-service-account@abdelsalam-billing-account.iam.gserviceaccount.com",
+            "project": "abdelsalam-billing-account",
+            "timeouts": null,
+            "unique_id": "102905745150371511947"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.network",
+      "mode": "managed",
+      "type": "google_compute_network",
+      "name": "vpc_network",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "auto_create_subnetworks": false,
+            "delete_default_routes_on_create": false,
+            "description": "",
+            "enable_ula_internal_ipv6": false,
+            "gateway_ipv4": "",
+            "id": "projects/abdelsalam-billing-account/global/networks/vpc-network",
+            "internal_ipv6_range": "",
+            "mtu": 0,
+            "name": "vpc-network",
+            "project": "abdelsalam-billing-account",
+            "routing_mode": "REGIONAL",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/global/networks/vpc-network",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "module": "module.network",
+      "mode": "managed",
+      "type": "google_compute_router",
+      "name": "my_router",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bgp": [],
+            "creation_timestamp": "2022-07-31T00:04:40.143-07:00",
+            "description": "",
+            "encrypted_interconnect_router": false,
+            "id": "projects/abdelsalam-billing-account/regions/europe-west1/routers/my-router",
+            "name": "my-router",
+            "network": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/global/networks/vpc-network",
+            "project": "abdelsalam-billing-account",
+            "region": "europe-west1",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/regions/europe-west1/routers/my-router",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.network.google_compute_network.vpc_network",
+            "module.network.google_compute_subnetwork.management_subnet"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.network",
+      "mode": "managed",
+      "type": "google_compute_router_nat",
+      "name": "my_nat",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "drain_nat_ips": [],
+            "enable_dynamic_port_allocation": false,
+            "enable_endpoint_independent_mapping": true,
+            "icmp_idle_timeout_sec": 30,
+            "id": "abdelsalam-billing-account/europe-west1/my-router/my-nat",
+            "log_config": [],
+            "max_ports_per_vm": 0,
+            "min_ports_per_vm": 0,
+            "name": "my-nat",
+            "nat_ip_allocate_option": "AUTO_ONLY",
+            "nat_ips": [],
+            "project": "abdelsalam-billing-account",
+            "region": "europe-west1",
+            "router": "my-router",
+            "source_subnetwork_ip_ranges_to_nat": "LIST_OF_SUBNETWORKS",
+            "subnetwork": [
+              {
+                "name": "projects/abdelsalam-billing-account/regions/europe-west1/subnetworks/management-subnet",
+                "secondary_ip_range_names": [],
+                "source_ip_ranges_to_nat": [
+                  "ALL_IP_RANGES"
+                ]
+              },
+              {
+                "name": "projects/abdelsalam-billing-account/regions/europe-west1/subnetworks/restricted-subnet",
+                "secondary_ip_range_names": [],
+                "source_ip_ranges_to_nat": [
+                  "ALL_IP_RANGES"
+                ]
+              }
+            ],
+            "tcp_established_idle_timeout_sec": 1200,
+            "tcp_transitory_idle_timeout_sec": 30,
+            "timeouts": null,
+            "udp_idle_timeout_sec": 30
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.network.google_compute_router.my_router",
+            "module.network.google_compute_subnetwork.management_subnet",
+            "module.network.google_compute_subnetwork.restricted_subnet"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.network",
+      "mode": "managed",
+      "type": "google_compute_subnetwork",
+      "name": "management_subnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "creation_timestamp": "2022-07-31T00:04:26.832-07:00",
+            "description": "",
+            "external_ipv6_prefix": "",
+            "fingerprint": null,
+            "gateway_address": "10.0.0.1",
+            "id": "projects/abdelsalam-billing-account/regions/europe-west1/subnetworks/management-subnet",
+            "ip_cidr_range": "10.0.0.0/24",
+            "ipv6_access_type": "",
+            "ipv6_cidr_range": "",
+            "log_config": [],
+            "name": "management-subnet",
+            "network": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/global/networks/vpc-network",
+            "private_ip_google_access": true,
+            "private_ipv6_google_access": "DISABLE_GOOGLE_ACCESS",
+            "project": "abdelsalam-billing-account",
+            "purpose": "PRIVATE",
+            "region": "europe-west1",
+            "role": "",
+            "secondary_ip_range": [],
+            "self_link": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/regions/europe-west1/subnetworks/management-subnet",
+            "stack_type": "IPV4_ONLY",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.network.google_compute_network.vpc_network"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.network",
+      "mode": "managed",
+      "type": "google_compute_subnetwork",
+      "name": "restricted_subnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "creation_timestamp": "2022-07-31T00:04:25.394-07:00",
+            "description": "",
+            "external_ipv6_prefix": "",
+            "fingerprint": null,
+            "gateway_address": "10.0.1.1",
+            "id": "projects/abdelsalam-billing-account/regions/europe-west1/subnetworks/restricted-subnet",
+            "ip_cidr_range": "10.0.1.0/24",
+            "ipv6_access_type": "",
+            "ipv6_cidr_range": "",
+            "log_config": [],
+            "name": "restricted-subnet",
+            "network": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/global/networks/vpc-network",
+            "private_ip_google_access": true,
+            "private_ipv6_google_access": "DISABLE_GOOGLE_ACCESS",
+            "project": "abdelsalam-billing-account",
+            "purpose": "PRIVATE",
+            "region": "europe-west1",
+            "role": "",
+            "secondary_ip_range": [
+              {
+                "ip_cidr_range": "10.244.0.0/20",
+                "range_name": "gke-private-gke-cluster-services-15086773"
+              },
+              {
+                "ip_cidr_range": "10.240.0.0/14",
+                "range_name": "gke-private-gke-cluster-pods-15086773"
+              }
+            ],
+            "self_link": "https://www.googleapis.com/compute/v1/projects/abdelsalam-billing-account/regions/europe-west1/subnetworks/restricted-subnet",
+            "stack_type": "IPV4_ONLY",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.network.google_compute_network.vpc_network"
+          ]
+        }
+      ]
+    }
+  ]
+}
